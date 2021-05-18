@@ -1,7 +1,11 @@
 <h1>My tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li>&#10003; <%= link_to task.title, task_show_path(task.id)%></li>
+    <li>&#10003; <%= link_to task.title, task_path(task.id)%> .
+     <%= link_to '🗑',
+            task_path(task),
+            method: :delete %>
+    </li>
   <%end%>
 </ul>
 <%= link_to '+ Add a new task', task_new_path %>
