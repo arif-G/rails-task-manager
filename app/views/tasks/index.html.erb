@@ -1,8 +1,14 @@
 <h1>My tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li>&#10003; <%= link_to task.title, task_path(task.id)%> .
-     <%= link_to '🗑',
+    <li>
+      <% if task.completed %>
+        &#9745;
+      <% else %>
+        &#9744;
+      <% end %>
+      <%= link_to task.title, task_path(task.id)%> .
+      <%= link_to '🗑',
             task_path(task),
             method: :delete %>
     </li>
